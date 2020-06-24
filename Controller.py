@@ -4,14 +4,15 @@ urls = (
     '/', 'home'
 )
 
-app = web.application(urls, globals())
+render = web.template.render("Views/Templates", base="MainLayout")
 
 
 # Classes/Routes
 class home:
     def GET(self):
-        return "home"
+        return render.Home()
 
 
 if __name__ == "__main__":
+    app = web.application(urls, globals())
     app.run()
